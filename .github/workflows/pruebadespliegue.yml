@@ -60,7 +60,7 @@ jobs:
 
       # Step 5: Creación del artefacto con el resultado del test
       - name: Crear artefacto result.txt
-        run: mkdir -p artifacts && echo ${{ steps.cypress.outcome }} > result.txt
+        run: mkdir -p artifacts && echo ${{ steps.cypress.outcome }} > artifacts/result.txt
 
       # Step 6: Upload del artefacto
       - name: Upload artifact
