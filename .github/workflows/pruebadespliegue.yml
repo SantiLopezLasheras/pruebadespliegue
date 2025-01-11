@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: result.txt
-          path: ./
+          path: ./result.txt
   Add_badge_job:
     runs-on: ubuntu-latest
     needs: Cypress_job
