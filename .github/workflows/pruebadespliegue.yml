@@ -32,6 +32,9 @@ jobs:
   Cypress_job:
     runs-on: ubuntu-24.04
     needs: Linter_job
+    strategy:
+      matrix:
+        node: [18, 20, 22]
 
     steps:
       # Step 1: Checkout code
@@ -42,7 +45,8 @@ jobs:
       - name: Setup node version
         uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: ${{ matrix.node }}
+      - run: node -v
 
       # Step 3: Instalar dependencias
       - name: Install dependencies
@@ -52,9 +56,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          config-file: cypress.json
           build: npm run build
           start: npm start
+          config-file: cypress.json
         continue-on-error: true
         id: cypress
       - name: Crear artefacto result.txt
