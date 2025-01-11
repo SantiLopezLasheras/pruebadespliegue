@@ -91,11 +91,11 @@ jobs:
 
       # Step 4: Instalar dependencias
       - name: Install dependencies
-        run: cd ./.github/actions/badge && npm install
+        run: cd ./.github/actions/badges && npm install
 
       # Step 5: Compilar carpeta dist
       - name: Compilar dist
-        run: cd ./.github/actions/badge && npm run build
+        run: cd ./.github/actions/badges && npm run build
 
       # Step 6: Generar output
       - name: Generar output
