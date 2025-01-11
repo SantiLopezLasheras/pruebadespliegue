@@ -83,7 +83,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: result.txt
-          path: .
+          path: resultados
 
       # Step 3: Test descarga del artefacto
       - name: Test artifact download
