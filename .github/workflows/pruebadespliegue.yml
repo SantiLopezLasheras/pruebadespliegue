@@ -66,20 +66,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          path: result.txt
+          path: ./
           name: result.txt
-  Update_metrics_job:
-    runs-on: ubuntu-latest
-    environment:
-      name: production
-    permissions:
-      contents: write
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          config_timezone: Europe/Madrid
-          config_output: insights
-          token: ${{ secrets.METRICS_TOKEN }}
 
   Add_badge_job:
     runs-on: ubuntu-latest
@@ -92,7 +80,7 @@ jobs:
 
       # Step 2: Obtener artefacto del job anterior
       - name: Descargar artefacto result.txt
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: result.txt
           name: result.txt
