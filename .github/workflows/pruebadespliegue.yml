@@ -1,0 +1,40 @@
+name: pruebadespliegue_workflow
+
+# se ejecutará al hacer push en la rama main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # ejecución del Linter_job para comprobar la sintaxis del código
+  Linter-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Establecer versión de Node
+      - name: Setup node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      # Step 3: Instalación de dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Linter execution
+      - name: Linter execution
+        run: npm run lint
+  Cypress_job:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
