@@ -12,7 +12,7 @@ async function main() {
         : "https://img.shields.io/badge/test-failure-red";
 
     const old_readme = await fs.readFile("./OldREADME.md", "utf8");
-    const new_readme = `<img src="${imgUrl}" />` + old_readme;
+    const new_readme = `<img src="${imgUrl}" />\n` + old_readme;
 
     await fs.writeFile("./README.md", new_readme);
     process.exit(0);
