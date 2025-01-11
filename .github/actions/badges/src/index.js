@@ -6,13 +6,13 @@ async function main() {
     const resultado = core.getInput("resultado");
     console.log(resultado);
 
-    const img =
+    const imgUrl =
       resultado === "success"
         ? "https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg"
         : "https://img.shields.io/badge/test-failure-red";
 
     const old_readme = await fs.readFile("./OldREADME.md", "utf8");
-    const new_readme = `<img src="${img}" />` + old_readme;
+    const new_readme = `<img src="${imgUrl}" />` + old_readme;
 
     await fs.writeFile("./README.md", new_readme);
     process.exit(0);
