@@ -62,13 +62,6 @@ jobs:
       - name: Crear artefacto result.txt
         run: echo ${{ steps.cypress.outcome }} > result.txt
 
-      # Step 6: Upload artefacto
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          path: result.txt
-          name: result.txt
-
   Add_badge_job:
     runs-on: ubuntu-latest
     needs: Cypress_job
