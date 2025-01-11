@@ -41,8 +41,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Establecer versión de Node
-      - name: Setup node version
+      # Step 2: Establecer versiones de Node
+      - name: Setup node versions
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
@@ -63,3 +63,22 @@ jobs:
         id: cypress
       - name: Crear artefacto result.txt
         run: echo ${{ steps.cypress.outcome }} > result.txt
+  Add_badge_job:
+    runs-on: ubuntu-latest
+    needs: Cypress_job
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Obtener artefacto del job anterior
+      - name: Descargar artefacto result.txt
+        uses: actions/download-artifact@v3
+        with:
+          name: result.txt
+
+      - name: Test artifact download
+        run: ls -R
+
+      # Step 3: Generar output
