@@ -4,6 +4,7 @@ const fs = require("fs").promises;
 async function main() {
   try {
     const resultado = core.getInput("resultado");
+    console.log(resultado);
 
     const img =
       resultado === "success"
@@ -11,7 +12,7 @@ async function main() {
         : "https://img.shields.io/badge/test-failure-red";
 
     const old_readme = await fs.readFile("./OldREADME.md", "utf8");
-    const new_readme = old_readme + resultado;
+    const new_readme = resultado + old_readme;
 
     await fs.writeFile("./README.md", new_readme);
     process.exit(0);
