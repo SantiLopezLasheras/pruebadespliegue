@@ -93,7 +93,7 @@ jobs:
       - name: Generar output
         uses: ./.github/actions/badge
         with:
-          resultado: "probando"
+          resultado: "probando 2"
 
       # Step 5: Commit and Push Changes
       - name: Commit and Push Changes
