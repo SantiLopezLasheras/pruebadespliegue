@@ -164,3 +164,4 @@ jobs:
           telegram_token: ${{ secrets.TELEGRAM_TOKEN}}
           telegram_id_user: ${{ secrets.TELEGRAM_ID_TOKEN }}
           resultado_cypress: ${{ needs.Cypress_job.outputs.cypress_result }}
+          resultado_badge: ${{ needs.Add_badge.status }}
