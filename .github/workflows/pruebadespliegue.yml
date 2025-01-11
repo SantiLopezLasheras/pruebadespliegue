@@ -8,7 +8,7 @@ on:
 
 jobs:
   # ejecución del Linter_job para comprobar la sintaxis del código
-  Linter-job:
+  Linter_job:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,10 +31,31 @@ jobs:
         run: npm run lint
   Cypress_job:
     runs-on: ubuntu-24.04
+    needs: Linter_job
 
     steps:
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Step 2: Establecer versión de Node
+      - name: Setup node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      # Step 3: Instalar dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Cypress run
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          config-file: cypress.json
+          build: npm run build
+          start: npm start
+        continue-on-error: true
+        id: cypress
+      - name: Crear artefacto result.txt
+        run: echo ${{ steps.cypress.outcome }} > result.txt
