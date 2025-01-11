@@ -66,9 +66,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: resultados
-          path: ./result.txt
-
+          name: result.txt
+          path: ./
   Add_badge_job:
     runs-on: ubuntu-latest
     needs: Cypress_job
@@ -83,7 +82,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: result.txt
-          path: resultados
+          path: result.txt
 
       # Step 3: Test descarga del artefacto
       - name: Test artifact download
