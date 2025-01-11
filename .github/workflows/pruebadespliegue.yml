@@ -89,13 +89,25 @@ jobs:
       - name: Test artifact download
         run: ls -R
 
-      # Step 4: Generar output
+      # Step 4: Instalar dependencias
+      - name: Install dependencies
+        run: |
+          cd ./.github/actions/badge
+          run: npm install
+
+      # Step 5: Compilar carpeta dist
+      - name: Compilar dist
+        run: |
+          cd ./.github/actions/badge
+          npm run build
+
+      # Step 6: Generar output
       - name: Generar output
         uses: ./.github/actions/badge
         with:
           resultado: "probando 2"
 
-      # Step 5: Commit and Push Changes
+      # Step 7: Commit and Push Changes
       - name: Commit and Push Changes
         uses: EndBug/add-and-commit@v9
         with:
