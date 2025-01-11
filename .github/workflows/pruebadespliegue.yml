@@ -32,6 +32,8 @@ jobs:
   Cypress_job:
     runs-on: ubuntu-24.04
     needs: Linter_job
+    outputs:
+      resultado_cypress: ${{ job.status }}
 
     steps:
       # Step 1: Checkout code
@@ -163,5 +165,5 @@ jobs:
         with:
           telegram_token: ${{ secrets.TELEGRAM_TOKEN}}
           telegram_id_user: ${{ secrets.TELEGRAM_ID_TOKEN }}
-          resultado_cypress: ${{ needs.Cypress_job.outputs.cypress_result }}
+          resultado_cypress: ${{ needs.Cypress_job.result }}
           resultado_badge: ${{ needs.Add_badge.status }}
