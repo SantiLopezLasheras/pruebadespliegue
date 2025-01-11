@@ -66,7 +66,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          path: ./
+          path: result.txt
           name: result.txt
 
   Add_badge_job:
@@ -92,10 +92,6 @@ jobs:
       # Step 4: Instalar dependencias
       - name: Install dependencies
         run: cd ./.github/actions/badges && npm install
-
-      # Step 5: Compilar carpeta dist
-      - name: Compilar dist
-        run: cd ./.github/actions/badges && npm run build
 
       # Step 6: Generar output
       - name: Generar output
