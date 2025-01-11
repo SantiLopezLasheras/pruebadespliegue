@@ -75,7 +75,7 @@ jobs:
       - name: Descargar artefacto result.txt
         uses: actions/download-artifact@v4
         with:
-          path: result.txt
+          path: .
           name: result.txt
 
       # Step 3: Test descarga del artefacto
