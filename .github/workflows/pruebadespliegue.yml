@@ -85,7 +85,22 @@ jobs:
           path: result.txt
           name: result.txt
 
+      # Step 3: Test descarga del artefacto
       - name: Test artifact download
         run: ls -R
 
-      # Step 3: Generar output
+      # Step 4: Generar output
+      - name: Generar output
+        uses: ./.github/actions/badge
+        with:
+          resultado: "probando"
+
+      # Step 5: Commit and Push Changes
+      - name: Commit and Push Changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "."
+          author_name: "Santi"
+          message: "Actualizado el README file"
+          push: true
+          token: ${{ secrets.TOKEN }}
