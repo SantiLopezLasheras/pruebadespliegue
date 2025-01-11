@@ -12,4 +12,4 @@ outputs:
     description: "Mensaje de respuesta del script"
 runs:
   using: "node20"
-  main: "../src/index.js"
+  main: "index.js"
