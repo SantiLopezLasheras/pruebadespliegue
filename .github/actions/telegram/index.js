@@ -5,10 +5,10 @@ const token = core.getInput("telegram_token");
 const ChatID = core.getInput("telegram_id_user");
 
 // resultados de los jobs
-const resultadoLinter = core.getInput("resultado_linter")
+const resultadoLinter = core.getInput("resultado_linter");
 const resultadoBadge = core.getInput("resultado_badge");
 const resultadoCypress = core.getInput("resultado_cypress");
-consr resultadoDeploy = core.getInput("resultado_deploy")
+const resultadoDeploy = core.getInput("resultado_deploy");
 
 const bot = new TelegramBot(token, { polling: true });
 
