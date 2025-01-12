@@ -149,6 +149,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Verificar resultados antes de enviar el mensaje
+        run: |
+          echo "Resultado Linter: ${{ needs.Linter_job.outputs.resultado_linter }}"
+          echo "Resultado Cypress: ${{ needs.Cypress_job.outputs.resultado_cypress }}"
+          echo "Resultado Badge: ${{ needs.Add_badge_job.outputs.resultado_badge }}"
+          echo "Resultado Deploy: ${{ needs.Deploy_job.outputs.resultado_deploy }}"
       # Step 2: Instalar dependencias
       - name: Instalar dependencias
         run: cd ./.github/actions/telegram && npm install
