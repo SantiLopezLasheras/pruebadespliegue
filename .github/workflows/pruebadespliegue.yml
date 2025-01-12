@@ -136,7 +136,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: nextjs-blog
-          path: .next/
+          path: .next
 
       # Step 4: Download artefacto con la build del blog
       - name: Get Artifact
@@ -155,7 +155,7 @@ jobs:
           working-directory: ./sub-directory
   Send_message:
     runs-on: ubuntu-latest
-    needs: Cypress_job
+    needs: Deploy_job
     steps:
       # Step 1: Checkout Code
       - name: Checkout code
