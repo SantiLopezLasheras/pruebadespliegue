@@ -9,6 +9,10 @@ const resultadoLinter = core.getInput("resultado_linter");
 const resultadoBadge = core.getInput("resultado_badge");
 const resultadoCypress = core.getInput("resultado_cypress");
 const resultadoDeploy = core.getInput("resultado_deploy");
+console.log("Resultado Linter:", resultadoLinter);
+console.log("Resultado Cypress:", resultadoCypress);
+console.log("Resultado Badge:", resultadoBadge);
+console.log("Resultado Deploy:", resultadoDeploy);
 
 const bot = new TelegramBot(token, { polling: true });
 
