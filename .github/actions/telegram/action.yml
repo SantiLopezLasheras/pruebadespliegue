@@ -10,7 +10,7 @@ inputs:
   resultado_linter:
     description: "Resultado del linter"
     required: true
-  resultado_crypress:
+  resultado_cypress:
     description: "Resultado de los test de cypress"
     required: true
   resultado_badge:
