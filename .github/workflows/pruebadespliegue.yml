@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       resultado_linter: ${{ job.status }}
-
     steps:
       # Step 1: Checkout code
       - name: Checkout code
@@ -152,7 +151,7 @@ jobs:
       - name: Verificar resultados antes de enviar el mensaje
         run: |
           echo "Resultado Linter: ${{ needs.Linter_job.outputs.resultado_linter }}"
-          echo "Resultado Cypress: ${{ needs.Cypress_job.outputs.resultado_cypress }}"
+          echo "Resultado Cypress: ${{ needs.Cypress_job.steps.cypress.outcome }}"
           echo "Resultado Badge: ${{ needs.Add_badge_job.outputs.resultado_badge }}"
           echo "Resultado Deploy: ${{ needs.Deploy_job.outputs.resultado_deploy }}"
       # Step 2: Instalar dependencias
