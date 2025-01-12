@@ -171,7 +171,7 @@ jobs:
         with:
           telegram_token: ${{ secrets.TELEGRAM_TOKEN}}
           telegram_id_user: ${{ secrets.TELEGRAM_ID_TOKEN }}
-          resultado_linter: ${{ needs.Linter_job.result }}
-          resultado_cypress: ${{ needs.Cypress_job.result }}
-          resultado_badge: ${{ needs.Add_badge_job.result }}
-          resultado_deploy: ${{ needs.Deploy_job.result}}
+          resultado_linter: ${{ needs.Linter_job.outputs.resultado_linter }}
+          resultado_cypress: ${{ needs.Cypress_job.outputs.resultado_cypress }}
+          resultado_badge: ${{ needs.Add_badge_job.outputs.resultado_badge }}
+          resultado_deploy: ${{ needs.Deploy_job.outputs.resultado_deploy}}
