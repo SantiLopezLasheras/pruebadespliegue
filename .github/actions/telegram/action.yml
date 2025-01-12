@@ -7,6 +7,18 @@ inputs:
   telegram_id_user:
     description: "Id del usuario de Telegram"
     required: true
+  resultado_linter:
+    description: "Resultado del linter"
+    required: true
+  resultado_crypress:
+    description: "Resultado de los test de cypress"
+    required: true
+  resultado_badge:
+    description: "Resultado del add_badge_job"
+    required: true
+  resultado_deploy:
+    description: "Resultado del deploy en Vercel"
+    required: true
 outputs:
   msg:
     description: "Mensaje de respuesta del script"
