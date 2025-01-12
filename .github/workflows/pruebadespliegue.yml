@@ -119,6 +119,8 @@ jobs:
   Deploy_job:
     runs-on: ubuntu-latest
     needs: Add_badge_job
+    continue-on-error: true
+
     outputs:
       resultado_deploy: ${{ job.status }}
 
@@ -130,19 +132,6 @@ jobs:
       # Step 2: Crear build
       - name: install & build
         run: npm install && npm run build
-
-      # Step 3: Upload artefacto con la build del blog
-      - name: Upload artefacto
-        uses: actions/upload-artifact@v3
-        with:
-          name: nextjs-blog
-          path: .next
-
-      # Step 4: Download artefacto con la build del blog
-      - name: Get Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: nextjs-blog
 
       # Step 5: Despliegue en Vercel
       - name: Deploy Vercel
