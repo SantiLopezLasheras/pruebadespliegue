@@ -1,7 +1,10 @@
 <img src="https://img.shields.io/badge/test-failure-red" />
+
 # Introducción teórica
 
 En esta práctica vamos a trabajar con GitHub Actions. Antes de empezar, tenemos que conocer qué engloban las siglas CI/CD.
+
+<img src="/assets/images/image2.png" alt="CI/CD" width="500">
 
 ## ¿Qué es CI/CD?
 
@@ -18,6 +21,8 @@ Son las siglas de integración continua y distribución y despliegue continuos y
     • Continuous Deployment (CD)
 
     La fase de continuous delivery prepara el código y lo deja listo para el despliegue, pero lo despliega automáticamente. El proceso de continuous deployment es una práctica avanzada del continuous delivery que se encarga de desplegar automáticamente cada integración de código que haya sido verificada y validada en las fases anteriores (CI y CD).
+
+<img src="/assets/images/image1.png" alt="GitHub Actions" width="500">
 
 ## ¿Qué es GitHub Actions?
 
